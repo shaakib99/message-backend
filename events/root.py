@@ -1,3 +1,3 @@
-from events.defaultEvents import DefaultEvents
+from .defaultEvents import DefaultEvents
 
-events = [DefaultEvents("/")]
+all_events = [DefaultEvents("/")]

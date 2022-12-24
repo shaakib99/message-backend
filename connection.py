@@ -3,7 +3,7 @@ from aiohttp import web
 import sys
 from logger import log, Logger
 from dataclasses import dataclass, field
-from events.root import events
+
 
 PORT = 8080
 HOST = "localhost"
@@ -26,7 +26,9 @@ if __name__ == "__main__":
 
     match server_command.lower():
         case "start":
-            for e in events:
+            from events.root import all_events
+
+            for e in all_events:
                 conn.sio.register_namespace(e)
 
             log(Logger(message=f"Server started at http://{HOST}:{PORT} port"))
